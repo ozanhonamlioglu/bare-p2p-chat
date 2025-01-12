@@ -1,5 +1,5 @@
 import { StyleSheet, Animated, Pressable } from 'react-native';
-import React, { useImperativeHandle, useRef, useState } from 'react';
+import React, { useCallback, useImperativeHandle, useRef, useState } from 'react';
 import { cls } from 'ui/component/styles';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import colorFromPalette from 'ui/component/styles/palette';
@@ -14,15 +14,15 @@ const ScrollControllerRef = ({ onPress }, ref) => {
   const [visible, setVisible] = useState(false);
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  const fadeIn = () => {
+  const fadeIn = useCallback(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 200,
       useNativeDriver: true,
     }).start();
-  };
+  }, []);
 
-  const fadeOut = () => {
+  const fadeOut = useCallback(() => {
     Animated.timing(fadeAnim, {
       toValue: 0,
       duration: 200,
@@ -30,7 +30,7 @@ const ScrollControllerRef = ({ onPress }, ref) => {
     }).start(({ finished }) => {
       if (finished) setVisible(false);
     });
-  };
+  }, []);
 
   useImperativeHandle(ref, () => ({
     controlVisibility: (status) => {
