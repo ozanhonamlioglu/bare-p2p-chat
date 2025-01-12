@@ -1,0 +1,7 @@
+worklet
+*.json
+*.config.*
+*.md
+node_modules
+.expo
+.vscode

@@ -1,0 +1,14 @@
+# SETUP
+- I kept the project with pure JS and benefited from JSDoc References as much as possible.
+- Eslint and prettier setup to keep code consistent.
+- Commit hooks setup to keep commits consistent.
+- Custom lightweight style management system.
+	- Style manager is built tokenization in mind. Many popular libraries does same such as glue-stack, tailwind etc.
+	- It was created just for the purpose, didn't want to include complexity, just right amount of functions to keep stylign consistent across the project.
+	- I normally use TypeScript on every project, but in this project I wanted to keep JS only and benefited from JSDoc references to infer parameter types.
+	- The tricky part about custom styling in projects is the type inferences, so JSDoc Refs definitely works almost close to the TypeScript inferences.
+- To make an efficient listview I used recyclerlistview from flipkart. So here are some extra notes for that. I am not always fan of 3th party libraries but I am currently using this library in a mission critical duty where I need to display thousand of products with images on a grocery store app, and this app has over 2K DAU. In past, I spent a lot of hours to find best tool for displaying thousands of items, even tried to made my own library which succeeded. So, short for long story, to handle very long lists, the best way either build a native library or go with recyclerlistview at the moment, from my experiences, RN libraries are not doing well as 3th parties yet.
+- For an efficient message list, in real world scenario, I would definitely use lazy loading to load previous messages as the user scrolls up.
+- I tested the app only on iOS, faced some build issues with Android and didn't want to pause for that, mostly focused on UI and business logic. So please test on iOS only as Android UI can mislead while testing the app.
+- In React Native, achieving optimal performance for a page involves minimizing unnecessary re-renders. Even, isolating necessary ones to affect only their respective components, we can significantly enhance the app's efficiency. I applied this principle while developing the chat page, ensuring that each part of the interface updates independently and only when required, resulting in a smoother and more performant user experience.
+- During the development I just slightly changed core libraries.

@@ -1,0 +1,9 @@
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+echo "${GREEN}Running ESlint rule checks...${NC}"
+npm run lint
+
+echo "${BLUE}Fix code smells...${NC}"
+npm run pretty-check
